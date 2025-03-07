@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>ASCII Text with ReactBits</title>
+    <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.26.0/babel.min.js"></script>
+    <style>
+        body { font-family: monospace; }
+    </style>
+</head>
+<body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+        function ASCIIText({ text }) {
+            return (
+                <pre>
+                    {text.split("").map(char => char.charCodeAt(0).toString(16)).join(" ")}
+                </pre>
+            );
+        }
+
+        function App() {
+            return (
+                <div>
+                    <h1>My ASCII Page</h1>
+                    <ASCIIText text="Hello, GitHub!" />
+                </div>
+            );
+        }
+
+        ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+    </script>
+</body>
+</html>
